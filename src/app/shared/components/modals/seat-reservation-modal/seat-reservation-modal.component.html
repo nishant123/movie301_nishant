@@ -27,7 +27,7 @@
         </div>
         <br>
         <!-- Generate the seating grid -->
-        <div *ngFor="let row of rows" class="grid__DIV">
+        <div *ngFor="let row of rows; trackBy: track" class="grid__DIV">
           <span class="seat" *ngFor="let col of cols;index as i;" (click)="seatClicked(row + col)" [ngSwitch]="getStatus(row + col)">
             <span class="rowSpan">{{row+col}}</span>
             <span>
@@ -47,7 +47,7 @@
         <!-- Structural directive - only visible on selection -->
         <div *ngIf="selected.length > 0">
           <div class="wordWrap">SEATS RESERVED : {{selected.length}}
-            <span class="count" *ngFor="let rowSelect of selected">({{rowSelect}})</span>
+            <span class="count" *ngFor="let rowSelect of selected; trackBy: track">({{rowSelect}})</span>
           </div>
           <div>PRICE : {{ticketPrice}} * {{selected.length}} = {{currency}}.{{ticketPrice*selected.length}} </div>
           <div>CONVENIENCE FEE : {{currency}}.{{convFee}}</div>

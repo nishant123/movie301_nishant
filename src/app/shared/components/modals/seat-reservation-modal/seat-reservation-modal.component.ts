@@ -59,6 +59,9 @@ export class SeatReservationModalComponent implements OnInit {
   onCloseCancel() {
     this.dialogRef.close('Cancel');
   }
+  track(_index, item) {
+        return item;
+  }
 
   // return status of each seat
   getStatus(seatPos: string) {

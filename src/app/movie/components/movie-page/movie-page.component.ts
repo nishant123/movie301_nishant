@@ -59,6 +59,9 @@ export class MoviePageComponent implements OnInit, OnChanges {
     });
     dialogRef.afterClosed().subscribe(() => {});
   }
+  track(_index, item) {
+        return item;
+  }
   openDialog(): void {
     const dialogRef = this.dialog.open(SeatReservationModalComponent, {
       width: sessionStorage.getItem('authDetails') ? window.innerWidth + 'px' : 'auto',

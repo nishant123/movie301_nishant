@@ -57,6 +57,12 @@ export class HomePageComponent implements OnInit {
       return -1;
     }
   }
+
+  track(_index, item) {
+        return item;
+  }
+
+
   getMovies() {}
 
   tabChanged(event) {

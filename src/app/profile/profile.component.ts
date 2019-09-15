@@ -64,6 +64,9 @@ export class ProfileComponent implements OnInit {
       console.log('updated', result, this.theaterList);
     });
   }
+  track(_index, item) {
+        return item;
+  }
   sucess() {
     this.newPreference.reset();
     this.matDialog.closeAll();

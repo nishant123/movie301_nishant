@@ -40,7 +40,8 @@ import { SharedModule } from './shared/shared.module';
     MaterialModule,
     CoreModule,
     AdminModule,
-    SharedModule
+    SharedModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

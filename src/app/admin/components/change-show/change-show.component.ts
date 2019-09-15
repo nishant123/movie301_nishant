@@ -41,6 +41,9 @@ export class ChangeShowComponent implements OnInit {
     this.nowShowing.push(movie.name);
     this.nowPlaying.push(movie.id);
   }
+  track(_index, item) {
+        return item;
+  }
   save() {
     this.matDialog.open(this.successDialog);
     this.adminService.saveNowPlaying(this.nowPlaying, this.selectTheater['tid']);

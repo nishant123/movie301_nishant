@@ -84,7 +84,9 @@ export class SDialogComponent implements OnInit, OnDestroy {
     this.movieFilterObj.value = this.selectedGenre;
     this.movieFilterObj = Object.assign({}, this.movieFilterObj);
   }
-
+  track(_index, item) {
+        return item;
+  }
   ngOnDestroy(): void {
     // console.log('destroy');
     this.moviesList = [];

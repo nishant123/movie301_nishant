@@ -9,7 +9,7 @@
       </app-movie-description>
       <h3>Social</h3>
       <div fxLayout="row" class="rating">
-        <div *ngFor="let star of rating">
+        <div *ngFor="let star of rating; trackBy: track">
           <mat-icon *ngIf="star">star_rate</mat-icon>
           <mat-icon *ngIf="!star">star_border</mat-icon>
         </div>
@@ -40,7 +40,7 @@
             </mat-form-field>
             <mat-form-field class="select-theater">
               <mat-select required [formControl]="selectTheater">
-                <mat-option *ngFor="let theater of theaterList" [value]="theater">
+                <mat-option *ngFor="let theater of theaterList; trackBy: track" [value]="theater">
                   {{theater.name}}
                 </mat-option>
               </mat-select>

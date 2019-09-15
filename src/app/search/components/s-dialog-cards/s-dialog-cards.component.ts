@@ -34,7 +34,9 @@ export class SDialogCardsComponent implements AfterContentChecked, DoCheck, OnIn
       // console.log('uspref', this.userPreference);
     });
   }
-
+  track(_index, item) {
+        return item;
+  }
   ngAfterContentChecked() {}
 
   ngDoCheck(): void {}
