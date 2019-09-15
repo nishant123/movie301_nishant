@@ -23,7 +23,7 @@ export class SearchComponent implements OnInit {
       maxHeight: '100vh'
     });
     dialogRef.afterClosed().subscribe(result => {
-      // this.router.navigate(['/home']);
+
     });
   }
 }

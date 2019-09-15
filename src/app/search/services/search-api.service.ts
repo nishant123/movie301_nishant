@@ -2,7 +2,6 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { timer, interval } from 'rxjs';
-// import 'rxjs/add/operator/map';
 import { Store, State } from '@ngrx/store';
 import * as MovieState from '../../reducers/index';
 

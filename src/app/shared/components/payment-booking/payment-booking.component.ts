@@ -32,8 +32,6 @@ export class PaymentBookingComponent implements OnInit {
         time: this.thirdParam, seat: this.fourthParam, total: this.fiveParam
       }
     });
-    // dialogRef.afterClosed().subscribe(result => {
-    // });
   }
 }
 

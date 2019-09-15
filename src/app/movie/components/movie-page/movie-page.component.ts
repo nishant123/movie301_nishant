@@ -48,7 +48,6 @@ export class MoviePageComponent implements OnInit, OnChanges {
     this.date.valueChanges.subscribe((value: Date) => {
       this.selectedDate = value.toJSON();
     });
-    console.log(this.movieDescription);
   }
   checKToDialog() {
     this.category === 'nowPlaying' ? this.openDialog() : this.preBookDialog();
@@ -74,8 +73,6 @@ export class MoviePageComponent implements OnInit, OnChanges {
     bookingInstance.time = this.selectedTime;
     bookingInstance.movieList = this.movieDescription;
     dialogRef.afterClosed().subscribe(result => {
-      // console.log(`Dialog closed: ${result}`);
-      // this.dialogResult = result;
     });
   }
   onValChange(val: string) {

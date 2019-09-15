@@ -53,9 +53,7 @@ export class SDialogComponent implements OnInit, OnDestroy {
       this.originalMovieList = result;
       this.moviesList = result;
       this.movieObjArray = this.movieListService.getLanguageList(this.moviesList); // get movies with languages
-      // console.log(this.movieObjArray);
-      // this.movieObjArray = this.segregateMovies.getSortedbyLanguage(this.languageList, this.moviesList);
-    });
+      });
 
     // genre list from service
     this.genresList = this.homeService.getGenres();
@@ -66,13 +64,10 @@ export class SDialogComponent implements OnInit, OnDestroy {
         searchList => {
           this.moviesList = searchList.results;
           this.movieObjArray = this.movieListService.getLanguageList(this.moviesList);
-          // this.movieObjArray = this.segregateMovies.getSortedbyLanguage(this.languageList, this.moviesList);
         },
         error => {
           this.moviesList = this.searchService.searchMovieFromStore(this.originalMovieList, searchString);
           this.movieObjArray = this.movieListService.getLanguageList(this.moviesList); // get Languages
-          // console.log('error', this.movieObjArray);
-          // this.movieObjArray = this.segregateMovies.getSortedbyLanguage(this.languageList, this.moviesList);
         }
       );
     });
@@ -88,7 +83,6 @@ export class SDialogComponent implements OnInit, OnDestroy {
         return item;
   }
   ngOnDestroy(): void {
-    // console.log('destroy');
     this.moviesList = [];
   }
 }

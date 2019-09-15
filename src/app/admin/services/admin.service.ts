@@ -18,15 +18,12 @@ export class AdminService {
       newTheaters = newObject['theaters'];
       newTheaters.push(data);
       this.http.put(THEATERS_URL, newObject).subscribe((res) => {
-       // console.log('Sucess', res);
       },
         (e) => console.log(e, 'while updating data'));
     },
       (e) => {
-        // console.log(e, 'while fetching data');
       },
       () => {
-       // console.log(newObject);
       });
   }
 
@@ -44,7 +41,6 @@ export class AdminService {
           }
         });
         this.http.put(THEATERS_URL, newObject).subscribe((xyz) => {
-          // console.log('Sucess', xyz);
         });
       });
     }

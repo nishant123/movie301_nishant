@@ -81,8 +81,6 @@ export class MovieCardComponent implements OnInit, OnChanges {
     bookingInstance.screen = this.selectedTheater && this.selectedTheater.name;
     bookingInstance.time = this.selectedTime;
     dialogRef.afterClosed().subscribe(result => {
-      // console.log(`Dialog closed: ${result}`);
-      //  this.dialogResult = result;
     });
   }
 

@@ -32,7 +32,6 @@ export class HomeService {
           });
         });
         this.store.dispatch(new SetNowPlayingMovies(movies['results']));
-        // this.getCastAndCrew(movies['results']);
       },
       error => {
         console.error(error);
@@ -53,7 +52,6 @@ export class HomeService {
           });
         });
         this.store.dispatch(new SetUpcomingMovies(movies['results']));
-        // this.getCastAndCrew(movies['results']);
       },
       error => {
         console.error(error);

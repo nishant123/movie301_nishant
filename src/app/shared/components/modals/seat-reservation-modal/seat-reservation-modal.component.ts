@@ -16,11 +16,9 @@ export class SeatReservationModalComponent implements OnInit {
   screen;
   time;
 
-  // rows: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
   rows: string[] = ['A', 'B', 'C', 'D'];
   cols: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-  // reserved: string[] = ['A2', 'A3', 'F5', 'F1', 'F2','F6', 'F7', 'F8', 'H1', 'H2', 'H3', 'H4'];
   reserved: string[] = ['A2', 'A3', 'B5', 'C1', 'C2', 'D4'];
   selected: string[] = [];
 
@@ -36,7 +34,7 @@ export class SeatReservationModalComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private router: Router
   ) {
-    console.log('data---', data);
+
   }
 
   ngOnInit() {
@@ -74,7 +72,6 @@ export class SeatReservationModalComponent implements OnInit {
 
   // click handler
   seatClicked(seatPos: string) {
-    console.log('test', seatPos);
     const index = this.selected.indexOf(seatPos);
     if (index !== -1) {
       // seat already selected, remove

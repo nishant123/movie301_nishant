@@ -8,9 +8,6 @@ describe('AddTheaterComponent', () => {
   let fixture: ComponentFixture<AddTheaterComponent>;
   beforeEach(() => {
     const formBuilderStub = new FormBuilder;
-    // const formBuilderStub = {
-    //  new FormGroup()
-    // };
     const matDialogStub = { open: successDialog => ({}), closeAll: () => ({}) };
     TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
@@ -36,7 +33,6 @@ describe('AddTheaterComponent', () => {
       );
       spyOn(matDialogStub, 'open').and.callThrough();
       component.onSubmit();
-     // expect(matDialogStub.open).toHaveBeenCalled();
     });
   });
   describe('dialogOk', () => {

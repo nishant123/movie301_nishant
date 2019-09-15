@@ -69,7 +69,6 @@ export class HeaderComponent implements OnInit {
               sessionStorage.setItem('authDetails', JSON.stringify(userDetails));
               this.store.dispatch(new SetUser(userDetails));
               this.validate();
-              // this.router.navigate(['/home']);
             }
           }
           if (this.signUpFlag === false) {
@@ -90,7 +89,6 @@ export class HeaderComponent implements OnInit {
     }
 
     this.socialAuthService.signOut().then(data => {
-      // window.open('https://accounts.google.com/Logout');
       sessionStorage.clear();
       this.store.dispatch(new RemoveUser());
       this.router.navigate(['/home']);
