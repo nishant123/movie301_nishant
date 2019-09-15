@@ -7,7 +7,7 @@
     <input type="text" (click)="openSearchPage()" placeholder="Search.." label="Search">
   </div>
   <div class="extraSpace"></div>
-  <button mat-icon-button class="user-button" aria-label="Toggle menu" >
+  <button mat-icon-button class="user-button" aria-label="Toggle menu" [matMenuTriggerFor]="user">
     <span *ngIf="userDetails && userDetails.image !== null">
     <img src="{{userDetails.image}}" class="profileImage" title="{{userDetails.name}}" onerror="this.src='/assets/download.png'" alt="User profile Pic" />
   </span>

@@ -63,14 +63,19 @@ app-movie-dropdowns {
   background-color: rgb(48, 48, 48);
 }
 .example-viewport {
-  height: 550px;
-  width: 900px;
+  height: 650px;
+  width: 100%;
   border: 1px solid black;
-  float:left;
+
 }
 
 .example-item {
   height: 500px;
   float:left;
   border:2px solid red;
+}
+.movie-container {
+  display:flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }

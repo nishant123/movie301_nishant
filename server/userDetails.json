@@ -1,6 +1,7 @@
 {
   "userDetails": {
-    "users": [{
+    "users": [
+      {
         "uid": "101590852450539536978",
         "name": "Punith Gowda N",
         "image": "https://lh3.googleusercontent.com/a-/AAuE7mDVwHhauttwavwJycmv7PhK-GrdSwoCKLSytD21=s96-c",
@@ -31,19 +32,37 @@
           "movieId": "",
           "rating": ""
         }
+      },
+      {
+        "uid": "109659324309032186770",
+        "name": "nishant chawla",
+        "image": "https://lh3.googleusercontent.com/a-/AAuE7mDCpOY419PaEf9Kv7xTsKFxs4huGij36RdsFfGUoA=s96-c",
+        "email": "chawla.nishant@gmail.com",
+        "role": "Standard",
+        "preferences": {
+          "lang": "en",
+          "generes": [],
+          "theaters": []
+        },
+        "ratings": {
+          "movieId": "",
+          "rating": ""
+        }
       }
     ]
   },
   "theater": {
-    "theaters": [{
-      "tid": "1",
-      "name": "Kapali",
-      "city": "Bangalore",
-      "gLocation": "test",
-      "capacity": 50,
-      "movies": [
-        474350
-      ]
-    }]
+    "theaters": [
+      {
+        "tid": "1",
+        "name": "Kapali",
+        "city": "Bangalore",
+        "gLocation": "test",
+        "capacity": 50,
+        "movies": [
+          474350
+        ]
+      }
+    ]
   }
 }
