@@ -49,11 +49,11 @@ describe('HomeComponent', () => {
         HomeService
       );
       spyOn(component, 'getNewSetofNowPlayingMovies').and.callThrough();
-      //spyOn(storeStub, 'select').and.callThrough();
+      // spyOn(storeStub, 'select').and.callThrough();
       spyOn(homeServiceStub, 'getGenres').and.callThrough();
       component.ngOnInit();
       expect(component.getNewSetofNowPlayingMovies).toHaveBeenCalled();
-      //expect(storeStub.select).toHaveBeenCalled();
+      // expect(storeStub.select).toHaveBeenCalled();
       expect(homeServiceStub.getGenres).toHaveBeenCalled();
     });
   });

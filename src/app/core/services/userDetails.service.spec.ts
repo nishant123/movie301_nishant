@@ -27,10 +27,10 @@ describe('UserDetailService', () => {
   describe('getUserDetailData', () => {
     it('makes expected calls', () => {
      // const storeStub: Store = TestBed.get(Store);
-      //spyOn(storeStub, 'dispatch').and.callThrough();
+      // spyOn(storeStub, 'dispatch').and.callThrough();
       (<jasmine.Spy>service.getUserDetailData).and.callThrough();
       service.getUserDetailData();
-      //expect(storeStub.dispatch).toHaveBeenCalled();
+      // expect(storeStub.dispatch).toHaveBeenCalled();
     });
   });
 });

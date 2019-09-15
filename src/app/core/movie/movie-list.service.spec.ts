@@ -17,7 +17,7 @@ describe('MovieListService', () => {
     expect(service).toBeTruthy();
   });
   it('call getlanguagelist', () => {
-    const movieList = {movie:[{original_language: '3'}, {original_language: '4'}]};
+    const movieList = {movie: [{original_language: '3'}, {original_language: '4'}]};
    // service.original_language = '';
     service.getLanguageList(movieList);
   });

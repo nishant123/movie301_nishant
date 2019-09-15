@@ -12,11 +12,13 @@
         <ng-template matTabContent class="movieList">
 
           <div class="cards-container" fxLayout="row wrap" fxLayoutAlign="space-evenly center" fxLayoutGap="2%">
-            <ng-container *ngFor="let movie of upcomingList">
+          <cdk-virtual-scroll-viewport itemSize="2" class="example-viewport">
+            <ng-container *cdkVirtualFor="let movie of upcomingList" class="example-item">
               <app-movie-card class=" seach-movies-cards" [movie]="movie" [theaterList]="theaterList"
                 [category]="'nowPlaying'">
               </app-movie-card>
             </ng-container>
+          </cdk-virtual-scroll-viewport> 
           </div>
 
         </ng-template>
@@ -25,10 +27,12 @@
         <ng-template matTabContent>
 
           <div class="cards-container" fxLayout="row wrap" fxLayoutAlign="space-evenly center">
-            <ng-container *ngFor="let movie of moviesList">
+            <cdk-virtual-scroll-viewport itemSize="2" class="example-viewport">
+            <ng-container *cdkVirtualFor="let movie of moviesList">
               <app-movie-card class="seach-movies-cards" [movie]="movie" [theaterList]="theaterList"
                 [category]="'upComing'"></app-movie-card>
             </ng-container>
+          </cdk-virtual-scroll-viewport> 
           </div>
 
         </ng-template>

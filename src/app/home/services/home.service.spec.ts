@@ -10,23 +10,6 @@ describe('HomeService', () => {
   let service: HomeService;
   beforeEach(() => {
 
-    // const HomeServiceStubMock = [
-    //   {
-    //     id: 2,
-    //     name: 'LSG_TEST_Group',
-    //   },
-    // ];
-    // const HomeServiceStub = {
-    //   movies: {
-    //     subscribe: (success, err) => {
-    //       const error = {
-    //         message: 'service failed',
-    //       };
-    //       success(HomeServiceStubMock);
-    //       err(error);
-    //     },
-    //   },
-    // };
     const httpClientStub = {
       get: arg1 => ({
         subscribe: (success, err) => {

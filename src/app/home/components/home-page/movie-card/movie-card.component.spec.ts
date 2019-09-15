@@ -24,10 +24,10 @@ describe('MovieCardComponent', () => {
     expect(component).toBeTruthy();
   });
   it('imagesPath defaults to: TMDB_URLS.IMAGE_URL', () => {
-    //expect(component.imagesPath).toEqual(TMDB_URLS.IMAGE_URL);
+    // expect(component.imagesPath).toEqual(TMDB_URLS.IMAGE_URL);
   });
   it('castCrewPath defaults to: TMDB_URLS.CAST_CREW_SMALL', () => {
-    //expect(component.castCrewPath).toEqual(TMDB_URLS.CAST_CREW_SMALL);
+    // expect(component.castCrewPath).toEqual(TMDB_URLS.CAST_CREW_SMALL);
   });
   it('movieName defaults to: Robot 2.O', () => {
     expect(component.movieName).toEqual('Robot 2.O');
@@ -43,7 +43,7 @@ describe('MovieCardComponent', () => {
       spyOn(component, 'openDialog').and.callThrough();
       spyOn(component, 'preBookDialog').and.callThrough();
       component.checKToDialog();
-      //expect(component.openDialog).toHaveBeenCalled();
+      // expect(component.openDialog).toHaveBeenCalled();
       expect(component.preBookDialog).toHaveBeenCalled();
     });
   });

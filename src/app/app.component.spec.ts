@@ -62,7 +62,7 @@ describe('AppComponent', () => {
       expect(homeServiceStub.getNowshowing).toHaveBeenCalled();
       expect(homeServiceStub.getTheaterList).toHaveBeenCalled();
       expect(homeServiceStub.fetchGenres).toHaveBeenCalled();
-      //expect(matSnackBarStub.open).toHaveBeenCalled();
+      // expect(matSnackBarStub.open).toHaveBeenCalled();
     });
   });
 });

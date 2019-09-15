@@ -23,7 +23,7 @@ export class AdminService {
         (e) => console.log(e, 'while updating data'));
     },
       (e) => {
-        //console.log(e, 'while fetching data');
+        // console.log(e, 'while fetching data');
       },
       () => {
        // console.log(newObject);

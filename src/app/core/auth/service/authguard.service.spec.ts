@@ -39,24 +39,24 @@ describe('AuthGuard', () => {
         RouterStateSnapshot
       );
       const routerStub: Router = TestBed.get(Router);
-      //const storeStub: Store = TestBed.get(Store);
+      // const storeStub: Store = TestBed.get(Store);
       spyOn(routerStub, 'navigate').and.callThrough();
-      //spyOn(storeStub, 'select').and.callThrough();
+      // spyOn(storeStub, 'select').and.callThrough();
       service.canActivate(activatedRouteSnapshotStub, routerStateSnapshotStub);
       expect(routerStub.navigate).toHaveBeenCalled();
-      //expect(storeStub.select).toHaveBeenCalled();
+      // expect(storeStub.select).toHaveBeenCalled();
     });
   });
   describe('canLoad', () => {
     it('makes expected calls', () => {
       const routerStub: Router = TestBed.get(Router);
-      //const routeStub: Route = TestBed.get(Route);
-      //const storeStub: Store = TestBed.get(Store);
+      // const routeStub: Route = TestBed.get(Route);
+      // const storeStub: Store = TestBed.get(Store);
       spyOn(routerStub, 'navigate').and.callThrough();
-      //spyOn(storeStub, 'select').and.callThrough();
+      // spyOn(storeStub, 'select').and.callThrough();
      // service.canLoad(routeStub);
-      //expect(routerStub.navigate).toHaveBeenCalled();
-      //expect(storeStub.select).toHaveBeenCalled();
+      // expect(routerStub.navigate).toHaveBeenCalled();
+      // expect(storeStub.select).toHaveBeenCalled();
     });
   });
 });

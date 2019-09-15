@@ -8,6 +8,8 @@ import {
   Output,
   ViewEncapsulation
 } from '@angular/core';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+
 
 import { HomeService } from '../../services/home.service';
 
