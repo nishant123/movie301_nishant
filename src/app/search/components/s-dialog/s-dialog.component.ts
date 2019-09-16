@@ -29,14 +29,18 @@ export class SDialogComponent implements OnInit, OnDestroy {
   lang: String = 'en';
   selectedGenre: any;
   selectedLanguage = 'en';
+  selectedVote = '7';
   languageList: any;
+  movieSortObj = 'NO';
 
   movieFilterObj = {
     filter: 'genre',
     value: ''
   };
   movieObjArray = []; // movie seperated by language
-
+  movievotecountArray = [];
+  originalMovieObjArray = [];
+  voteCountF: FormControl;
   searchField = new FormControl();
 
   constructor(
@@ -49,10 +53,13 @@ export class SDialogComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // movie from store
+    this.voteCountF = new FormControl();
     this.store.select(MovieState.nowPlayingMoviesSelector).subscribe(result => {
       this.originalMovieList = result;
       this.moviesList = result;
       this.movieObjArray = this.movieListService.getLanguageList(this.moviesList); // get movies with languages
+      this.movievotecountArray = this.movieListService.getvotecountList(this.moviesList);
+      this.originalMovieObjArray = this.movieObjArray;
       });
 
     // genre list from service
@@ -71,6 +78,23 @@ export class SDialogComponent implements OnInit, OnDestroy {
         }
       );
     });
+    this.voteCountF.valueChanges.subscribe(res => {
+      this.movieObjArray = this.originalMovieObjArray;
+      this.movieObjArray = this.movieListService.getVoteCount(this.movieObjArray, res);
+    });
+  }
+  // sorting by name
+  sortList() {
+    switch (this.movieSortObj) {
+      case 'ASC':
+        this.movieSortObj = 'DES';
+        break;
+        case 'DES':
+            this.movieSortObj = 'ASC';
+        break;
+        default:
+          this.movieSortObj = 'ASC';
+    }
   }
 
   // change detection for genre dropdown

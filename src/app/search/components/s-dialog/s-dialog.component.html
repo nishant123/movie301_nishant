@@ -10,6 +10,12 @@
   </div>
 
   <div class="dialog-dropdown" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="1%">
+      <button (click)= "sortList()">Sort On Name</button>
+      <!-- <mat-form-field>
+          <mat-select placeholder="Vote count numbers" [formControl]='voteCountF'>
+              <mat-option *ngFor="let vote of movievotecountArray; trackBy: track" [value]="vote.code">{{vote.code}}</mat-option>
+          </mat-select>
+      </mat-form-field> -->
     <mat-form-field>
       <select [(ngModel)]="selectedLanguage" matNativeControl placeholder="Language">
         <option *ngFor='let language of movieObjArray; trackBy: track' value="{{language.code}}"> {{language.key}}</option>
@@ -23,8 +29,11 @@
         <option *ngFor="let genre of genresList; trackBy: track" value="{{genre.id}}">{{genre.name}}</option>
       </select>
     </mat-form-field>
-
-
+    <mat-form-field>
+        <mat-select placeholder="Vote count numbers" [formControl]='voteCountF'>
+            <mat-option *ngFor="let vote of movievotecountArray; trackBy: track" [value]="vote.code">{{vote.code}}</mat-option>
+        </mat-select>
+    </mat-form-field>
   </div>
 </mat-dialog-content>
 <!-- </div> -->

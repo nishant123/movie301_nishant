@@ -26,7 +26,6 @@ import { PreBookingComponent } from '../shared/components/modals/pre-booking/pre
     HttpClientModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  exports: [MaterialModule],
   entryComponents: [SeatReservationModalComponent, PreBookingComponent],
   providers: [MovieService]
 })

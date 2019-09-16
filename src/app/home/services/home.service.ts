@@ -15,9 +15,11 @@ export class HomeService {
   nowPlayingMoviesUrl = BASE_URL.TMDB_API + TMDB_URLS.NOW_PLAYING_MOVIES + environment.API_KEY + '&page=';
   upcomingMoviesUrl = BASE_URL.TMDB_API + TMDB_URLS.UPCOMING_MOVIES + environment.API_KEY + '&page=';
   genresUrl = BASE_URL.TMDB_API + TMDB_URLS.GENRES + environment.API_KEY + '&language=en-US';
+  popularityUrl = BASE_URL.TMDB_API + TMDB_URLS.GENRES + environment.API_KEY + '&language=en-US';
   sortPreferenceUrl = environment.JSONSERVER + JSON_SERVER_URLS.USER_DETAILS;
   genres = [];
-  constructor(private http: HttpClient, private store: Store<MovieState.State>) {}
+  constructor(private http: HttpClient, private store: Store<MovieState.State>) {
+  }
 
   getNowshowing(page = 1) {
     this.http.get<Movie[]>(this.nowPlayingMoviesUrl + page).subscribe(

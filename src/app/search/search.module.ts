@@ -26,7 +26,6 @@ import { SearchComponent } from './container/search/search.component';
     SearchRoutingModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  entryComponents: [SDialogComponent],
-  exports: [MaterialModule]
+  entryComponents: [SDialogComponent]
 })
 export class SearchModule {}

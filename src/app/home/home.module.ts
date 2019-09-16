@@ -29,7 +29,6 @@ import { SharedModule } from '../shared/shared.module';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
-  exports: [MaterialModule],
   entryComponents: [SeatReservationModalComponent, ConfirmationModalComponent, PreBookingComponent]
 })
 export class HomeModule { }

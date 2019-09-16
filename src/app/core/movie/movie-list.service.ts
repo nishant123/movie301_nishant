@@ -775,4 +775,37 @@ export class MovieListService {
     }
     return languageList;
   }
+  getvotecountList(movieList) {
+    const votecountList = [];
+    const votecountObj = {};
+    for (const movie of movieList) {
+
+      if (votecountObj[movie.vote_count]) {
+        votecountObj[movie.vote_count].value.push(movie);
+      } else {
+        votecountObj[movie.vote_count] = {
+          code: movie.vote_count,
+          value: []
+        };
+        votecountObj[movie.vote_count].value.push(movie);
+    }
+    }
+    for (const vote_count in votecountObj) {
+      if (votecountObj.hasOwnProperty(vote_count)) {
+        votecountList.push(votecountObj[vote_count]);
+      }
+    }
+    return votecountList;
+  }
+  getVoteCount(movieList = [], res) {
+    const result = movieList.map(item => {
+      const filteredValue = item.value.filter(s => s.vote_count > res);
+      return {
+        ...item,
+        value: filteredValue
+      };
+    });
+    console.log('vote count result', result);
+    return result;
+  }
 }
