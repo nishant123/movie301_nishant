@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, State } from '@ngrx/store';
-import * as MovieState from '../../../reducers/index';
+import * as MovieState from '../../../../reducers/index';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
-import { MovieListService } from '../../../core/movie/movie-list.service';
-import {} from '../../../home/store/actions/home.action';
-import { HomeService } from '../../../home/services/home.service';
+import { MovieListService } from '../../../../core/movie/movie-list.service';
+import {} from '../../../../home/store/actions/home.action';
+import { HomeService } from '../../../../home/services/home.service';
 import { SegregateMovieService } from '../../services/segregate-movie.service';
 import { SearchApiService } from '../../services/search-api.service';
 import { OnDestroy } from '@angular/core';

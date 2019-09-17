@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material';
 import { SeatReservationModalComponent } from '../../../../shared/components/modals/seat-reservation-modal/seat-reservation-modal.component';
 import { FormControl } from '@angular/forms';
 import { BASE_URL, TMDB_URLS } from '../../../../shared/config';
-import { Movie } from '../../../../search/models/search.model';
+import { Movie } from '../../../../features/search/models/search.model';
 import { PreBookingComponent } from '../../../../shared/components/modals/pre-booking/pre-booking.component';
 
 @Component({

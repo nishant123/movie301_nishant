@@ -7,6 +7,7 @@ import 'rxjs/add/operator/catch';
 import { throwError } from 'rxjs';
 import { SnackBarService } from '../Snack-Bar/snack-bar.service';
 import { LogService } from '../../shared/service/log.service';
+import { WEB_CONSTANTS } from '../../shared/constants';
 
 @Injectable()
 export class ServerErrorInterceptor implements HttpInterceptor {
@@ -18,18 +19,18 @@ export class ServerErrorInterceptor implements HttpInterceptor {
             if (badRequest.test(err.status.toString())) {
                 const statusCode = err.status;
                 if (statusCode === 408) {
-                    this.snackbar.error('Request Timeout');
-                    return throwError('Request Timeout');
+                    this.snackbar.error(WEB_CONSTANTS.REQUESTTIMEOUT);
+                    return throwError(WEB_CONSTANTS.REQUESTTIMEOUT);
                 } else if (statusCode === 404) {
-                    const storageVal = {
-                        warning: this.logger.warn(' Not found'),
-                        information: this.logger.info(err.status + ' Not found'),
-                        ErrorInfo: this.logger.error(err.status + ' Not found'),
-                        fatal: this.logger.fatal(err.status + ' Not found'),
+                        const storageVal = {
+                        warning: this.logger.warn(err.status + WEB_CONSTANTS.NOTFOUND),
+                        information: this.logger.info(err.status + WEB_CONSTANTS.NOTFOUND),
+                        ErrorInfo: this.logger.error(err.status + WEB_CONSTANTS.NOTFOUND),
+                        fatal: this.logger.fatal(err.status + WEB_CONSTANTS.NOTFOUND),
                         logger: this.logger.log(err.status)
                       };
-                      sessionStorage.setItem('Error Logger defined', JSON.stringify(storageVal));
-                    this.snackbar.error(err.status + ' Not found');
+                      sessionStorage.setItem(WEB_CONSTANTS.ERRORLOGGERDEFINE, JSON.stringify(storageVal));
+                    this.snackbar.error(err.status + WEB_CONSTANTS.NOTFOUND);
                     return throwError(err.status);
                 } else if (statusCode === 406) {
                     return throwError(err.status);

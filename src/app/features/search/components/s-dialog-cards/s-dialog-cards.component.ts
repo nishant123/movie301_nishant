@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, AfterContentChecked, DoCheck } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { HomeFilterPipe } from '../../../shared/pipes/home-filter.pipe';
-import { SortMoviePipe } from '../../../shared/pipes/sort-movie.pipe';
-import * as UserState from '../../../reducers/index';
+import { HomeFilterPipe } from '../../../../shared/pipes/home-filter.pipe';
+import { SortMoviePipe } from '../../../../shared/pipes/sort-movie.pipe';
+import * as UserState from '../../../../reducers/index';
 import { Store } from '@ngrx/store';
 
 
