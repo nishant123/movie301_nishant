@@ -5,7 +5,7 @@ export const TMDB_URLS = {
   GET_CREDITS: '3/movie/',
   NOW_PLAYING_MOVIES: '3/movie/now_playing?',
   UPCOMING_MOVIES: '3/movie/upcoming?',
-  GENRES: '3/genre/movie/list?',
+  GENRES: '3/genre/movie1/list?',
   SEARCH_URL: '3/search/movie?',
   SEARCH_MOVIE: '3/search/movie',
   IMAGE_URL: 'https://image.tmdb.org/t/p/w300',

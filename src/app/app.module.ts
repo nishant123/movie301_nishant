@@ -17,6 +17,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { ServerErrorInterceptor } from './core/interceptors/error.interceptor';
+import { LogService } from './shared/service/log.service';
+
 
 @NgModule({
   declarations: [AppComponent, ProfileComponent],
@@ -43,8 +46,13 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
     SharedModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  providers: [LogService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ServerErrorInterceptor,
+      multi: true
+    }
   ],
 
   bootstrap: [AppComponent]
