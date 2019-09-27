@@ -1,70 +1,99 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { MovieCardComponent } from './movie-card.component';
+import { MatMenuModule, MatAutocompleteModule, MatDialog } from '@angular/material';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+
 describe('MovieCardComponent', () => {
   let component: MovieCardComponent;
   let fixture: ComponentFixture<MovieCardComponent>;
-  beforeEach(() => {
-    const matDialogStub = {
-      open: (preBookingComponent, object) => ({
-        afterClosed: () => ({ subscribe: () => ({}) }),
-        componentInstance: {}
-      })
-    };
+  const matDialogStub = {
+    open: (dialogComponentName1, object2) => ({
+      afterClosed: () => {
+        return { subscribe: result => [] };
+      }
+    }),
+    closeAll: () => ({
+      afterClosed: () => {
+        return { subscribe: result => [] };
+      }
+    })
+  };
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [MatMenuModule, MatAutocompleteModule],
       schemas: [NO_ERRORS_SCHEMA],
       declarations: [MovieCardComponent],
-      providers: [{ provide: MatDialog, useValue: matDialogStub }]
-    });
+      providers: [
+        {
+          provide: MatDialog,
+          useValue: matDialogStub
+        }
+      ]
+    }).compileComponents();
+  }));
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(MovieCardComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
   });
-  it('can load instance', () => {
+
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('imagesPath defaults to: TMDB_URLS.IMAGE_URL', () => {
-    // expect(component.imagesPath).toEqual(TMDB_URLS.IMAGE_URL);
+
+  it('can call onValChange method', () => {
+    const socialPlatform = 'google';
+    expect(component.onValChange).toBeDefined();
+    spyOn(component, 'onValChange').and.callThrough();
+    component.onValChange(socialPlatform);
+    expect(component.onValChange).toHaveBeenCalled();
   });
-  it('castCrewPath defaults to: TMDB_URLS.CAST_CREW_SMALL', () => {
-    // expect(component.castCrewPath).toEqual(TMDB_URLS.CAST_CREW_SMALL);
+
+  it('can call isInvalid method', () => {
+    expect(component.isInvalid).toBeDefined();
+    spyOn(component, 'isInvalid').and.callThrough();
+    component.isInvalid();
+    expect(component.isInvalid).toHaveBeenCalled();
   });
-  it('movieName defaults to: Robot 2.O', () => {
-    expect(component.movieName).toEqual('Robot 2.O');
+
+  it('can call checKToDialog method', () => {
+    expect(component.checKToDialog).toBeDefined();
+    spyOn(component, 'checKToDialog').and.callThrough();
+    component.checKToDialog();
+    expect(component.checKToDialog).toHaveBeenCalled();
   });
-  it('rating defaults to: 4.7', () => {
-    expect(component.rating).toEqual(4.7);
+
+  it('can call preBookDialog method', () => {
+    expect(component.preBookDialog).toBeDefined();
+    spyOn(component, 'preBookDialog').and.callThrough();
+    component.preBookDialog();
+    expect(component.preBookDialog).toHaveBeenCalled();
   });
-  it('totalReviews defaults to: 51', () => {
-    expect(component.totalReviews).toEqual(51);
+
+  it('can call openDialog method', () => {
+    expect(component.openDialog).toBeDefined();
+    spyOn(component, 'openDialog').and.callThrough();
+    component.openDialog();
+    expect(component.openDialog).toHaveBeenCalled();
   });
-  describe('checKToDialog', () => {
-    it('makes expected calls', () => {
-      spyOn(component, 'openDialog').and.callThrough();
-      spyOn(component, 'preBookDialog').and.callThrough();
-      component.checKToDialog();
-      // expect(component.openDialog).toHaveBeenCalled();
-      expect(component.preBookDialog).toHaveBeenCalled();
-    });
+
+  it('can call trackCastandCrew method', () => {
+    const index = 1;
+    const cast = {
+      is: 1
+    };
+    expect(component.trackCastandCrew).toBeDefined();
+    spyOn(component, 'trackCastandCrew').and.callThrough();
+    component.trackCastandCrew(index, cast);
+    expect(component.trackCastandCrew).toHaveBeenCalled();
   });
-  describe('preBookDialog', () => {
-    it('makes expected calls', () => {
-      const matDialogStub: MatDialog = fixture.debugElement.injector.get(
-        MatDialog
-      );
-      spyOn(matDialogStub, 'open').and.callThrough();
-      component.preBookDialog();
-      expect(matDialogStub.open).toHaveBeenCalled();
-    });
-  });
-  describe('openDialog', () => {
-    it('makes expected calls', () => {
-      const matDialogStub: MatDialog = fixture.debugElement.injector.get(
-        MatDialog
-      );
-      spyOn(matDialogStub, 'open').and.callThrough();
-      component.openDialog();
-      expect(matDialogStub.open).toHaveBeenCalled();
-    });
+
+  it('can call ngOnChanges   method', () => {
+    expect(component.ngOnChanges).toBeDefined();
+    spyOn(component, 'ngOnChanges').and.callThrough();
+    component.ngOnChanges();
+    expect(component.ngOnChanges).toHaveBeenCalled();
   });
 });

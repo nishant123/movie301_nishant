@@ -24,7 +24,6 @@ export class LogService {
   }
 
   warn(msg: string, ...optionalParams: any[]) {
-    debugger;
     return this.writeToLog(msg, LogLevel.Warn, optionalParams);
   }
 

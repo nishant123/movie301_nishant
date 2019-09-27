@@ -1,54 +1,88 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClient } from '@angular//common/http';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { MovieComponent } from './movie.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
-import { MovieService } from '../../services/movie.service';
-import { MovieComponent } from './movie.component';
+
 describe('MovieComponent', () => {
   let component: MovieComponent;
   let fixture: ComponentFixture<MovieComponent>;
-  beforeEach(() => {
-    const storeStub = {
-      select: nowPlayingMoviesSelector => ({ subscribe: () => ({}) })
-    };
-    const activatedRouteStub = { params: { subscribe: () => ({}) } };
-    const movieServiceStub = {
-      getMovie: id => ({ subscribe: () => ({}) }),
-      getCastAndCrew: id => ({ subscribe: () => ({}) })
-    };
+  const storeStub = {
+    select: arg1 => ({
+      subscribe: success => {
+        const res = [{ id: 1 }];
+        success(res);
+      }
+    }),
+    dispatch: arg1 => {}
+  };
+  const queryParams = {
+    id: 1,
+    category: 'nowPlaying',
+    customerMasterId: ''
+  };
+  const activatedRouteStub = {
+    params: {
+      subscribe: res => {
+        res(queryParams);
+      }
+    }
+  };
+
+  const httpClientStub = {
+    get: arg1 => ({
+      subscribe: success => {
+        const obj = {
+          firstname: 'John',
+          lastname: 'Doe',
+          age: 50,
+          eyecolor: 'blue',
+          theaters: ['Hello']
+        };
+        const error = {
+          message: 'Error'
+        };
+        success(obj);
+        // err(error);
+      }
+    }),
+    put: arg1 => ({
+      subscribe: success => {
+        const obj = [
+          {
+            theaters: {}
+          }
+        ];
+        success(obj);
+        return {};
+      }
+    }),
+    post: (arg1, arg2) => ({ pipe: () => ({ pipe: () => ({}) }) })
+  };
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
       declarations: [MovieComponent],
       providers: [
-        { provide: Store, useValue: storeStub },
+        {
+          provide: Store,
+          useValue: storeStub
+        },
         { provide: ActivatedRoute, useValue: activatedRouteStub },
-        { provide: MovieService, useValue: movieServiceStub }
+        { provide: HttpClient, useValue: httpClientStub }
       ]
-    });
+    }).compileComponents();
+  }));
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(MovieComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
   });
-  it('can load instance', () => {
+
+  it('should create', () => {
     expect(component).toBeTruthy();
-  });
-  describe('ngOnInit', () => {
-    it('makes expected calls', () => {
-      // const storeStub: Store = fixture.debugElement.injector.get(Store);
-      // spyOn(storeStub, 'select').and.callThrough();
-      component.ngOnInit();
-      // expect(storeStub.select).toHaveBeenCalled();
-    });
-  });
-  describe('ngAfterContentInit', () => {
-    it('makes expected calls', () => {
-      const movieServiceStub: MovieService = fixture.debugElement.injector.get(
-        MovieService
-      );
-      spyOn(movieServiceStub, 'getMovie').and.callThrough();
-      spyOn(movieServiceStub, 'getCastAndCrew').and.callThrough();
-      component.ngAfterContentInit();
-      expect(movieServiceStub.getMovie).toHaveBeenCalled();
-      expect(movieServiceStub.getCastAndCrew).toHaveBeenCalled();
-    });
   });
 });
